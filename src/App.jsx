@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import "./style/App.css";
 import "./style/project-grid.css";
@@ -16,39 +16,31 @@ const App = () => {
 
   const [documents] = useAllPrismicDocumentsByType('project-cover')
 
-  const getProjectArray = (documents) => {
-    if (documents) {
-      return documents.map((doc) => {
-        return {
-          id: doc.uid,
-          img: doc.data.cover.url,
-          name: doc.data.title[0].text,
-          link: doc.data.link.url
-        }
-      }).sort((a, b) => a.id - b.id);
-    }
-    return []
-  }
+  const getProjectArray = useCallback((documents) => {
+    return documents ? documents.map((doc) => ({
+      id: doc.uid,
+      img: doc.data.cover.url,
+      name: doc.data.title[0].text,
+      link: doc.data.link.url
+    })).sort((a, b) => a.id - b.id) : [];
+  }, []);
 
   useEffect(() => {
-    setProjects(getProjectArray(documents))
-  }, [documents])
+    setProjects(getProjectArray(documents));
+  }, [documents, getProjectArray]);
+
+  const updateCursorPosition = useCallback((ev) => {
+    setCursorPosition({ left: ev.clientX, top: ev.clientY });
+  }, []);
 
   useEffect(() => {
-
     document.addEventListener('mousemove', updateCursorPosition);
-
     return () => {
       document.removeEventListener('mousemove', updateCursorPosition);
     };
-  }, []);
+  }, [updateCursorPosition]);
 
-
-  const updateCursorPosition = (ev) => {
-    setCursorPosition({ left: ev.clientX, top: ev.clientY });
-  };
-
-
+  
   return (
     <div className="page">
       <Cursor {...cursorPosition} />
