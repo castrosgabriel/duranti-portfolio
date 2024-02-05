@@ -1,0 +1,12 @@
+.cursor {
+    position: fixed;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background-color: rgb(199, 214, 218);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    mix-blend-mode: color-dodge;
+    filter: blur(100px);
+    pointer-events: none;
+}
