@@ -30,22 +30,6 @@
   height: 100%;
 }
 
-.page .duranti-vector {
-  height: fit-content;
-  width: 100%;
-  animation: blur 3s ease-in-out alternate infinite;
-}
-
-@keyframes blur {
-  from {
-    filter: blur(8px);
-  }
-
-  to {
-    filter: blur(2px);
-  }
-}
-
 a p{
   cursor: pointer;
   transition: all 0.2s ease-in-out;

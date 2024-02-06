@@ -48,7 +48,7 @@ const App = () => {
       </video>
       <div className="portfolio-container">
         <SideBar />
-        <ProjectGrid imagesArray={projects} />
+        <ProjectGrid projectArray={projects} />
       </div>
     </div>
   );

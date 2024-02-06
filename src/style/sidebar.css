@@ -1,3 +1,20 @@
+.page .duranti-vector {
+  height: auto;
+  width: 100%;
+  animation: blur 3s ease-in-out alternate infinite;
+  object-fit: contain;
+}
+
+@keyframes blur {
+  from {
+    filter: blur(8px);
+  }
+
+  to {
+    filter: blur(2px);
+  }
+}
+
 .page .sidebar-container {
     align-items: center;
     align-self: stretch;

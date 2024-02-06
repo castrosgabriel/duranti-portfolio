@@ -32,6 +32,19 @@ const SideBar = () => {
         });
     };
 
+    const renderResumeList = (title, list, className) => (
+        <div className={className}>
+            {list && (
+                <>
+                    <p>[{title}]</p>
+                    {list.map((item, index) => (
+                        <p key={index}><span>{item}</span></p>
+                    ))}
+                </>
+            )}
+        </div>
+    );
+
     const renderContactList = () => (
         <div className={"div-right"}>
             {contactList && (
@@ -41,19 +54,6 @@ const SideBar = () => {
                         <a key={index} href={contact.link} target="_blank">
                             <p>{contact.contactTitle}</p>
                         </a>
-                    ))}
-                </>
-            )}
-        </div>
-    );
-    
-    const renderResumeList = (title, list, className) => (
-        <div className={className}>
-            {list && (
-                <>
-                    <p>[{title}]</p>
-                    {list.map((item, index) => (
-                        <p key={index}><span>{item}</span></p>
                     ))}
                 </>
             )}
