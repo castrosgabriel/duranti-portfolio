@@ -12,7 +12,6 @@ const ProjectGrid = ({ imagesArray }) => {
                     </div>
                 ))}
             </div>
-
         </>
     )
 };

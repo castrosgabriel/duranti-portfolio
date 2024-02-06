@@ -9,7 +9,7 @@
 body {
   margin: 0;
   background-color: var(--background);
-  cursor: none;
+  /* cursor: none; */
 }
 
 p span {
@@ -30,6 +30,7 @@ p {
   font-style: normal;
   font-weight: 400;
   line-height: 14px;
+  text-transform: uppercase;
 }
 
 a {

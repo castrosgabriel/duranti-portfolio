@@ -13,10 +13,9 @@ import { useAllPrismicDocumentsByType } from '@prismicio/react';
 const App = () => {
   const [cursorPosition, setCursorPosition] = useState({ left: 0, top: 0 });
   const [projects, setProjects] = useState([])
-
   const [documents] = useAllPrismicDocumentsByType('project-cover')
 
-  const getProjectArray = useCallback((documents) => {
+  const fetchProjectArray = useCallback((documents) => {
     return documents ? documents.map((doc) => ({
       id: doc.uid,
       img: doc.data.cover.url,
@@ -26,8 +25,8 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    setProjects(getProjectArray(documents));
-  }, [documents, getProjectArray]);
+    setProjects(fetchProjectArray(documents));
+  }, [documents, fetchProjectArray]);
 
   const updateCursorPosition = useCallback((ev) => {
     setCursorPosition({ left: ev.clientX, top: ev.clientY });
@@ -40,7 +39,6 @@ const App = () => {
     };
   }, [updateCursorPosition]);
 
-  
   return (
     <div className="page">
       <Cursor {...cursorPosition} />
