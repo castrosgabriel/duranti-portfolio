@@ -60,7 +60,6 @@ const SideBar = () => {
         </div>
     );
     
-
     const roleList = resume.find((item) => item.title === 'Role');
     const basedInList = resume.find((item) => item.title === 'Based In');
     const agencyList = resume.find((item) => item.title === 'Agency');

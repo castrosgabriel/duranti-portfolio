@@ -13,6 +13,20 @@
     max-height: calc(100vh - 160px);
     padding: 80px 56px;
     z-index: 99;
+    animation: fadeInSide 1s ease-in-out;
+  }
+
+  @keyframes fadeInSide {
+    from {
+      opacity: 0;
+      transform: translatey(20px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translatey(0);
+    }
+    
   }
 
   .page .sidebar-content {
