@@ -33,22 +33,33 @@ const SideBar = () => {
     };
 
     const renderContactList = () => (
-        <div className="div-right">
-            {contactList && <p>[CONTACT]</p>}
-            {contactList && contactList.map((contact, index) => (
-                <a key={index} href={contact.link} target="_blank"><p>{contact.contactTitle}</p></a>
-            ))}
+        <div className={"div-right"}>
+            {contactList && (
+                <>
+                    <p>[CONTACT]</p>
+                    {contactList.map((contact, index) => (
+                        <a key={index} href={contact.link} target="_blank">
+                            <p>{contact.contactTitle}</p>
+                        </a>
+                    ))}
+                </>
+            )}
         </div>
     );
-
-    const renderResumeList = (title, list) => (
-        <div className="div-left">
-            {list && <p>[${title}]</p>}
-            {list && list.map((item, index) => (
-                <p key={index}><span>{item}</span></p>
-            ))}
+    
+    const renderResumeList = (title, list, className) => (
+        <div className={className}>
+            {list && (
+                <>
+                    <p>[{title}]</p>
+                    {list.map((item, index) => (
+                        <p key={index}><span>{item}</span></p>
+                    ))}
+                </>
+            )}
         </div>
     );
+    
 
     const roleList = resume.find((item) => item.title === 'Role');
     const basedInList = resume.find((item) => item.title === 'Based In');
@@ -60,16 +71,12 @@ const SideBar = () => {
             <img className="duranti-vector" alt="Duranti" src={DurantVectorImage} />
             <div className="sidebar-content">
                 <div className="resume-list">
-                    {renderResumeList('Role', roleList && roleList.list)}
-                    {renderResumeList('Based In', basedInList && basedInList.list)}
-                    {renderResumeList('Agency', agencyList && agencyList.list)}
+                    {renderResumeList('Role', roleList && roleList.list, 'div-left')}
+                    {renderResumeList('Based In', basedInList && basedInList.list, 'div-left')}
+                    {renderResumeList('Agency', agencyList && agencyList.list, 'div-left')}
                 </div>
                 <div className="more-info-list">
-                    <div className="div-right">
-                        <p>{(softwareList) && `[${softwareList.title}]`}</p>
-                        {(softwareList) && softwareList.list.map((software, index) => (
-                            <p key={index}>{software}</p>))}
-                    </div>
+                    {renderResumeList('Software', softwareList && softwareList.list, 'div-right')}
                     {renderContactList(contactList && contactList.contactTitle, contactList && contactList.link)}
                 </div>
             </div>

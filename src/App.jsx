@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 
 import "./style/App.css";
 import "./style/project-grid.css";
+import "./style/sidebar.css";
 
 import Cursor from './components/Cursor';
 import ProjectGrid from './components/ProjectGrid';
