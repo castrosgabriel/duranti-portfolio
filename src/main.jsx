@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import './style/index.css'
+import './styles/index.css'
 
 import { PrismicProvider } from '@prismicio/react'
 import { client } from './service/prismic.js'

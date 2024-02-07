@@ -1,4 +1,4 @@
-import '../style/cursor.css'
+import '../styles/cursor.css'
 
 const Cursor = ({ left, top }) => (
   <>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-import "./style/App.css";
-import "./style/project-grid.css";
-import "./style/sidebar.css";
+import "./styles/App.css";
+import "./styles/project-grid.css";
+import "./styles/sidebar.css";
 
 import Cursor from './components/Cursor';
 import ProjectGrid from './components/ProjectGrid';
